@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Serializer
 {
     [Serializable]
-    public class Person
+    public class Person : IDeserializationCallback
     {
         public string Name { get; set; }
         public string Adress { get; set; }
@@ -56,6 +52,11 @@ namespace Serializer
                 }
             }
             return person;
+        }
+
+        public void OnDeserialization(object sender)
+        {
+           
         }
     }
 }

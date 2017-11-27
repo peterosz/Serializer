@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Serializer
@@ -14,7 +9,7 @@ namespace Serializer
     public partial class Form1 : Form
     {
         Person viewdPerson = null;
-        static int viewdPersonNumber = 0;
+        int viewdPersonNumber = 1;
 
         public Form1()
         {
@@ -63,20 +58,34 @@ namespace Serializer
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            viewdPersonNumber++;
-            txtBoxName.Text = "";
-            txtBoxAdress.Text = "";
-            txtBoxPhone.Text = "";
-            showPerson(viewdPersonNumber);  
+            showPerson(++viewdPersonNumber);  
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
             if (viewdPersonNumber > 1)
             {
-                viewdPersonNumber--;
-                showPerson(viewdPersonNumber);
+                showPerson(--viewdPersonNumber);
             }
+        }
+
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            showPerson(getLastFileIndex());
+        }
+
+        int getLastFileIndex()
+        {
+            List<FileInfo> personFiles = new List<FileInfo>();
+            FileInfo[] currentFiles = new DirectoryInfo(Environment.CurrentDirectory).GetFiles();
+            foreach(FileInfo file in currentFiles)
+            {
+                if (Regex.IsMatch(file.Name, @"^Person\w{1,2}\.dat$"))
+                {
+                    personFiles.Add(file);
+                }
+            }
+            return personFiles.Count;
         }
     }
 }

@@ -37,6 +37,8 @@
             this.btnPrev = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btsSave = new System.Windows.Forms.Button();
+            this.btnFirst = new System.Windows.Forms.Button();
+            this.btnLast = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblName
@@ -120,11 +122,35 @@
             this.btsSave.UseVisualStyleBackColor = true;
             this.btsSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // btnFirst
+            // 
+            this.btnFirst.AutoSize = true;
+            this.btnFirst.Location = new System.Drawing.Point(12, 223);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(75, 27);
+            this.btnFirst.TabIndex = 9;
+            this.btnFirst.Text = "First";
+            this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.Form1_Load);
+            // 
+            // btnLast
+            // 
+            this.btnLast.AutoSize = true;
+            this.btnLast.Location = new System.Drawing.Point(103, 223);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.Size = new System.Drawing.Size(75, 27);
+            this.btnLast.TabIndex = 10;
+            this.btnLast.Text = "Last";
+            this.btnLast.UseVisualStyleBackColor = true;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(319, 259);
+            this.Controls.Add(this.btnLast);
+            this.Controls.Add(this.btnFirst);
             this.Controls.Add(this.btsSave);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrev);
@@ -153,6 +179,8 @@
         private System.Windows.Forms.Button btnPrev;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btsSave;
+        private System.Windows.Forms.Button btnFirst;
+        private System.Windows.Forms.Button btnLast;
     }
 }
 
