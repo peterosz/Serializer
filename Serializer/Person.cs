@@ -42,7 +42,7 @@ namespace Serializer
 
         public static Person Deserialize(int PersonNumber)
         {
-            Object person = new Object();
+            Person person = null;
             using (FileStream openFile = new FileStream(@"Person"+PersonNumber+".dat", FileMode.Open))
             {
                 BinaryFormatter formatter = new BinaryFormatter();
@@ -55,7 +55,7 @@ namespace Serializer
                     Console.WriteLine("Failed to deserialize. Reason: " + ex.Message);
                 }
             }
-            return (Person)person;
+            return person;
         }
     }
 }

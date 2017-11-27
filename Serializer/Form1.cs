@@ -13,8 +13,8 @@ namespace Serializer
 {
     public partial class Form1 : Form
     {
-        Person viewdPerson = new Person();
-        static int viewdPersonNumber = 1;
+        Person viewdPerson = null;
+        static int viewdPersonNumber = 0;
 
         public Form1()
         {
@@ -55,6 +55,9 @@ namespace Serializer
             catch(FileNotFoundException ex)
             {
                 Console.WriteLine(ex.Message);
+                txtBoxName.Text = "";
+                txtBoxAdress.Text = "";
+                txtBoxPhone.Text = "";
             }
         }
 
